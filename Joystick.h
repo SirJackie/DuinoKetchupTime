@@ -1,14 +1,11 @@
-#define LBTN_PIN     6
-#define RBTN_PIN     7
+#define ABTN_PIN     7
+#define BBTN_PIN     6
 
-#define LBTN_REVERSE 0
-#define RBTN_REVERSE 0
+#define ABTN_REVERSE 0
+#define BBTN_REVERSE 0
 
-#define LBTN_STATE   (LBTN_REVERSE) ? ( !digitalRead(LBTN_PIN) ) : ( digitalRead(LBTN_PIN) )
-#define RBTN_STATE   (RBTN_REVERSE) ? ( !digitalRead(RBTN_PIN) ) : ( digitalRead(RBTN_PIN) )
-
-#define ABTN_STATE   RBTN_STATE
-#define BBTN_STATE   LBTN_STATE
+#define ABTN_STATE   (ABTN_REVERSE) ? ( !digitalRead(ABTN_PIN) ) : ( digitalRead(ABTN_PIN) )
+#define BBTN_STATE   (BBTN_REVERSE) ? ( !digitalRead(BBTN_PIN) ) : ( digitalRead(BBTN_PIN) )
 
 #define X_PIN        A3
 #define Y_PIN        A2
