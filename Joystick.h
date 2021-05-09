@@ -1,3 +1,6 @@
+#ifndef __JOYSTICK_H__
+#define __JOYSTICK_H__
+
 #define ABTN_PIN     7
 #define BBTN_PIN     6
 
@@ -18,3 +21,5 @@
 
 #define X_STATE      (analogRead(X_PIN)<=CLAMP_VAL_1) ? (X_REVERSE) : ( (analogRead(X_PIN)>=CLAMP_VAL_2) ? (!X_REVERSE) : (-1) )
 #define Y_STATE      (analogRead(Y_PIN)<=CLAMP_VAL_1) ? (Y_REVERSE) : ( (analogRead(Y_PIN)>=CLAMP_VAL_2) ? (!Y_REVERSE) : (-1) )
+
+#endif
