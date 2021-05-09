@@ -32,9 +32,9 @@ int timeCount = 0;
 
 void AKeyPage(){
   u8g2.firstPage();
-  timeCount = 5;
+  timeCount = 3120;
   do {
-    u8g2.drawStr(15, 15, "5s count start.");
+    u8g2.drawStr(15, 15, "Goal: 52 minutes");
   } while ( u8g2.nextPage() );
   
   delay(1000);
@@ -48,9 +48,9 @@ void AKeyPage(){
 
 void BKeyPage(){
   u8g2.firstPage();
-  timeCount = 2;
+  timeCount = 1190;
   do {
-    u8g2.drawStr(15, 15, "2s count start.");
+    u8g2.drawStr(15, 15, "Goal: 17 minutes");
   } while ( u8g2.nextPage() );
   
   delay(1000);
