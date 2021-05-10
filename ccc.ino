@@ -5,6 +5,8 @@
 
 /// Global Variables
 U8G2_SSD1306_128X64_NONAME_1_HW_I2C u8g2(U8G2_R0, /* reset=*/ U8X8_PIN_NONE, /* clock=*/ 16, /* data=*/ 17);
+int timeCount = 0;
+int soundBlinkCount = 0;
 
 
 
@@ -17,8 +19,8 @@ void IndexPage(){
   u8g2.firstPage();
   do {
     u8g2.drawStr(15, 15, "Timer");
-    u8g2.drawStr(15, 31, "Press A: 52min");
-    u8g2.drawStr(15, 49, "Press B: 17min");
+    u8g2.drawStr(15, 31, "Press A: 25min");
+    u8g2.drawStr(15, 49, "Press B:  5min");
   } while ( u8g2.nextPage() );
   DefineRoute(1, 2);
 }
@@ -28,13 +30,11 @@ void IndexPage(){
 
 
 
-int timeCount = 0;
-
 void AKeyPage(){
   u8g2.firstPage();
-  timeCount = 3120;
+  timeCount = 1500;
   do {
-    u8g2.drawStr(15, 15, "Goal: 52 minutes");
+    u8g2.drawStr(15, 15, "Goal: 25 minutes");
   } while ( u8g2.nextPage() );
   
   delay(1000);
@@ -48,9 +48,9 @@ void AKeyPage(){
 
 void BKeyPage(){
   u8g2.firstPage();
-  timeCount = 1190;
+  timeCount = 300;
   do {
-    u8g2.drawStr(15, 15, "Goal: 17 minutes");
+    u8g2.drawStr(15, 15, "Goal: 5 minutes");
   } while ( u8g2.nextPage() );
   
   delay(1000);
@@ -97,8 +97,21 @@ void SoundBlinkPage(){
   do{
     u8g2.drawStr(15, 15, "Times up!!!");
   } while ( u8g2.nextPage() );
+
+  soundBlinkCount--;
   
-  tone(5, 3200);
+  if(soundBlinkCount <= 0){
+    soundBlinkCount = 5;
+  }
+  
+  else if(soundBlinkCount < 2){
+    noTone(5);
+  }
+
+  else if(soundBlinkCount <= 5){
+    tone(5, 3200);
+  }
+  
   
   DefineRoute(0, 0);
 }
